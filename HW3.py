@@ -52,7 +52,7 @@ class CouponDispenser:
         result = ""
         for i in range(len(self.coupon_cards)):
             if i > 0:
-                result =  result + "!"
+                result =  result + "|"
             result = result + self.coupon_cards[i]
         return result
 
@@ -82,7 +82,7 @@ class CouponDispenser:
         if found_index != -1:
             coupon_index = self.issued_indices[found_index]
             coupon_text = self.coupon_cards[coupon_index]
-            return "That name already has coupon: " + coupon_text
+            return "That name already has a coupon: " + coupon_text
         
         random_index = int(random.random() * len(self.coupon_cards))
 
@@ -107,7 +107,37 @@ class CouponDispenser:
         Reminder: Use lists only (no dictionaries).
         """
         # TODO: Implement per instructions 
-        pass
+        round_number = 1
+        running = True
+
+        while running:
+            user_input = input(
+                "Round " + str(round_number) + " - Enter a name (or a comma-separated list), or type 'show' or 'exit': "
+            )
+
+            if user_input == "exit":
+                print("Goodbye!")
+                running = False
+
+            elif user_input == "show":
+                for i in range(len(self.customer_roster)):
+                    name = self.customer_roster[i]
+                    coupon_index = self.issued_indices[i]
+                    coupon_text = self.coupon_cards[coupon_index]
+                    print(name + ": " + coupon_text)
+
+                round_number = round_number + 1
+
+            else:
+                pieces = user_input.split(",")
+
+                for piece in pieces:
+                    stripped_text = piece.strip()
+                    if stripped_text != "":
+                        result = self.issue_coupon(stripped_text)
+                        print(result)
+
+                round_number = round_number + 1
 
     def tally_distribution(self):
         """
@@ -144,10 +174,9 @@ def main():
     ]
 
     # Uncomment the lines below as you implement each function.
-    # box = CouponDispenser(coupon_cards)
-    # box.distribute_session()
-    # box.tally_distribution()
-    pass
+    box = CouponDispenser(coupon_cards)
+    box.distribute_session()
+    box.tally_distribution()
 
 
 # -----------------------
