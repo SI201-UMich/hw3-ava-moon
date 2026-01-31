@@ -1,12 +1,12 @@
 # Name: Ava Moon
 # Student ID: 15169006
 # Email: avamoon@umich.edu
-# Who or what you worked with on this homework (including generative AI like ChatGPT):
-# If you worked with generative AI also add a statement for how you used it.
+# Who or what you worked with on this homework (including generative AI like ChatGPT): ChatGPT
+# If you worked with generative AI also add a statement for how you used it. I used ChatGPT to help me work through logic errors in the issue_coupon function, distribute_session function, and tally_distribution function after I tried multiple times myself. I also used ChatGPT to confirm that my code matched the assignment rubric.
 # e.g.:
 # Asked ChatGPT hints for debugging and suggesting the general structure of the code
 # Did your use of GenAI on this assignment align with your goals and guidelines in 
-#    your Gen AI contract? If not, why?
+#    your Gen AI contract? If not, why? I don't think it aligned with my goals as well as I could've specified in my Gen AI contract because I was hoping to know more of the logic myself instead of having it explain to me.
 
 import random
 import io
